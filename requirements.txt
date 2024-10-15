@@ -1,0 +1,4 @@
+scikit-learn
+nltk
+Flask 
+numpy 
