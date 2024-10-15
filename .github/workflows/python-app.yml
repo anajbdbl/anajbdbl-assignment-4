@@ -5,16 +5,15 @@ name: Python application
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
-
-permissions:
-  contents: read
+    branches:
+      - main
+    
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -26,6 +25,6 @@ jobs:
     - name: Install dependencies
       run: make install
     - name: Run the application
-      run: make run & sleep 10
+      run: make run & sleep 20
     - name: Verify application
-      run: curl -f http://localhost:3000 || exit 1
+      run: curl --fail http://localhost:3000 || exit 1 || exit 1
